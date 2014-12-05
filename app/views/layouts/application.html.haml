@@ -15,13 +15,13 @@
         .small-12.columns
           .icon-bar.three-up
             =link_to root_path, class: 'item' do
-              %i.fi-calendar
+              =fa_icon 'calendar'
               %label Home
             =link_to new_advent_path, class: 'item' do
-              %i.fi-clipboard-pencil
+              =fa_icon 'pencil-square-o'
               %label New
             =link_to destroy_user_session_path, class: 'item', method: :delete do
-              %i.fi-x
+              =fa_icon 'times'
               %label Sign out
     -unless flash.empty?
       .row
