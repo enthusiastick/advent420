@@ -10,6 +10,19 @@
     =csrf_meta_tags
   %body
     %br/
+    -if user_signed_in?
+      .row
+        .small-12.columns
+          .icon-bar.three-up
+            =link_to root_path, class: 'item' do
+              %i.fi-calendar
+              %label Home
+            =link_to new_advent_path, class: 'item' do
+              %i.fi-clipboard-pencil
+              %label New
+            =link_to destroy_user_session_path, class: 'item', method: :delete do
+              %i.fi-x
+              %label Sign out
     -unless flash.empty?
       .row
         .small-12.columns
@@ -19,5 +32,6 @@
                 =content_tag :div, msg
                 %a.close{:href => "#"} &times;
     =yield
+    %br/
     =javascript_include_tag "application"
     =yield :javascript

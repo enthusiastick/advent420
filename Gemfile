@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'carrierwave'
+gem 'devise'
 gem 'fog'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
