@@ -15,45 +15,74 @@
         %tr
           %td.text-right
             %h4 30&nbsp;
-            .panel
+            -if @advents.find_by(date: 30).nil?
               %h1.text-center
                 %i.fi-x-circle
+            -else
+              =link_to image_tag(@advents.find_by(date: 30).image.url, class: 'th'), advent_path(@advents.find_by(date: 30))
           -(1..6).each do |n|
             %td.text-right
               %h4
                 =n
                 &nbsp;
-              .panel
-                -if Advent.find_by(date: n).nil?
-                  %h1.text-center
-                    %i.fi-x-circle
-                -else
-                  =link_to 'foo', advent_path(Advent.find_by(date: n))
+              -if @advents.find_by(date: n).nil?
+                %h1.text-center
+                  %i.fi-x-circle
+              -elsif n > @today
+                %h1.text-center
+                  %i.fi-lock
+              -else
+                =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), '#', "data-reveal-id" => "modal#{n}"
         %tr
           -(7..13).each do |n|
             %td.text-right
               %h4
                 =n
                 &nbsp;
-              .panel
+              -if @advents.find_by(date: n).nil?
                 %h1.text-center
                   %i.fi-x-circle
+              -elsif n > @today
+                %h1.text-center
+                  %i.fi-lock
+              -else
+                =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), advent_path(@advents.find_by(date: n))
         %tr
           -(14..20).each do |n|
             %td.text-right
               %h4
                 =n
                 &nbsp;
-              .panel
+              -if @advents.find_by(date: n).nil?
                 %h1.text-center
                   %i.fi-x-circle
+              -elsif n > @today
+                %h1.text-center
+                  %i.fi-lock
+              -else
+                =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), advent_path(@advents.find_by(date: n))
         %tr
           -(21..25).each do |n|
             %td.text-right
               %h4
                 =n
                 &nbsp;
-              .panel
+              -if @advents.find_by(date: n).nil?
                 %h1.text-center
                   %i.fi-x-circle
-
+              -elsif n > @today
+                %h1.text-center
+                  %i.fi-lock
+              -else
+                =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), advent_path(@advents.find_by(date: n))
+-@advents.each do |advent|
+  .reveal-modal{id: "modal#{advent.date}","data-reveal" => ""}
+    %h1= advent.title
+    =image_tag(advent.image.url)
+    %div
+      =raw RedCloth.new(advent.description).to_html
+    %h4.text-right
+      =link_to advent_path(advent) do
+        %i.fi-link
+        permalink
+    %a.close-reveal-modal &#215;

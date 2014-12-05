@@ -11,8 +11,17 @@ class AdventsController < ApplicationController
     end
   end
 
+  def index
+    @advents = Advent.all
+    @today = Date.today.day
+  end
+
   def new
     @advent = Advent.new
+  end
+
+  def show
+    @advent = Advent.find(params[:id])
   end
 
   protected

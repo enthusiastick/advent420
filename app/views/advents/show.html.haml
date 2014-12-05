@@ -1,0 +1,16 @@
+.row
+  .small-12.columns
+    %ul.inline-list
+      %li
+        %h1
+          =link_to advents_path do
+            %i.fi-home
+      %li
+        %h1= "#{@advent.date} #{@advent.title}"
+.row
+  .small-12.columns
+    .panel
+      .text-center
+        =image_tag(@advent.image.url)
+      %div
+        =raw RedCloth.new(@advent.description).to_html
