@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require textile-editor
+//= require ./textile-editor-config
 //= require foundation
 //= require_tree .
 

@@ -1,0 +1,23 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title
+      =content_for?(:title) ? yield(:title) : "foundation-rails"
+    =stylesheet_link_tag    "application"
+    =javascript_include_tag "vendor/modernizr"
+    =csrf_meta_tags
+  %body
+    %br/
+    -unless flash.empty?
+      .row
+        .small-12.columns
+          -flash.each do |name, msg|
+            -if msg.is_a?(String)
+              .alert-box{:class => name, "data-alert" => "", style: 'font-size: large;'}
+                =content_tag :div, msg
+                %a.close{:href => "#"} &times;
+    =yield
+    =javascript_include_tag "application"
+    =yield :javascript

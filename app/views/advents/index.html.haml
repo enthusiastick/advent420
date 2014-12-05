@@ -1,0 +1,59 @@
+.row
+  .small-12.columns
+    %h1.text-center December 2028
+    %table{width: '100%'}
+      %thead
+        %tr
+          %th{width: '14.2%'} Sunday
+          %th{width: '14.2%'} Monday
+          %th{width: '14.2%'} Tuesday
+          %th{width: '14.2%'} Wednesday
+          %th{width: '14.2%'} Thursday
+          %th{width: '14.2%'} Friday
+          %th{width: '14.2%'} Saturday
+      %tbody
+        %tr
+          %td.text-right
+            %h4 30&nbsp;
+            .panel
+              %h1.text-center
+                %i.fi-x-circle
+          -(1..6).each do |n|
+            %td.text-right
+              %h4
+                =n
+                &nbsp;
+              .panel
+                -if Advent.find_by(date: n).nil?
+                  %h1.text-center
+                    %i.fi-x-circle
+                -else
+                  =link_to 'foo', advent_path(Advent.find_by(date: n))
+        %tr
+          -(7..13).each do |n|
+            %td.text-right
+              %h4
+                =n
+                &nbsp;
+              .panel
+                %h1.text-center
+                  %i.fi-x-circle
+        %tr
+          -(14..20).each do |n|
+            %td.text-right
+              %h4
+                =n
+                &nbsp;
+              .panel
+                %h1.text-center
+                  %i.fi-x-circle
+        %tr
+          -(21..25).each do |n|
+            %td.text-right
+              %h4
+                =n
+                &nbsp;
+              .panel
+                %h1.text-center
+                  %i.fi-x-circle
+
