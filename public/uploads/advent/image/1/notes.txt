@@ -1,0 +1,5 @@
+Sentinel +1 Keen Arcane Scimitar
+Arcane: Store up to 4 points from Arcane Pool into Scimitar as a Swift Action, spend as if they're your own.
+Free action: expend point from sword, +2 bonus to Concentration for 1 round.
+Swift action: expend point from sword to use Flattening Strike Magus Arcana.
+Immediate action: expend up to 4 points from sword to use Reflection Magus Arcana.

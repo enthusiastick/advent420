@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141204194056) do
   create_table "advents", force: true do |t|
     t.integer  "date",        null: false
     t.text     "description"
+    t.string   "image"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"

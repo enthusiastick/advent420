@@ -18,7 +18,7 @@ class AdventsController < ApplicationController
   protected
 
   def advent_params
-    params.require(:advent).permit(:date, :description, :title)
+    params.require(:advent).permit(:date, :description, :image, :title)
   end
 
 end
