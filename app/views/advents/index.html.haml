@@ -23,7 +23,7 @@
                 %h1.text-center
                   &nbsp;
             -else
-              =link_to image_tag(@advents.find_by(date: 30).image.url, class: 'th'), advent_path(@advents.find_by(date: 30))
+              =link_to image_tag(@advents.find_by(date: 30).image.url, class: 'th'), '#', "data-reveal-id" => "modal30"
           -(1..6).each do |n|
             %td.text-right
               %h4
@@ -118,7 +118,8 @@
 -@advents.each do |advent|
   .reveal-modal{id: "modal#{advent.date}","data-reveal" => ""}
     %h1= advent.title
-    =image_tag(advent.image.url)
+    .text-center
+      =image_tag(advent.image.url, style: 'max-height: 500px;')
     %div
       =raw RedCloth.new(advent.description).to_html
     %h4.text-right
