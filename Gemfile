@@ -27,7 +27,7 @@ gem 'spring',        group: :development
 gem 'carrierwave'
 gem 'devise'
 gem 'fog'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 gem 'google-webfonts'
