@@ -1,6 +1,7 @@
 class AdventsController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new, :update]
+  before_action :set_today, only: [:index, :show]
 
   def create
     @advent = Advent.new(advent_params)
@@ -15,11 +16,6 @@ class AdventsController < ApplicationController
 
   def index
     @advents = Advent.all
-    if Date.today.month == 12
-      @today = Date.today.day
-    else
-      @today = 31
-    end
   end
 
   def new
@@ -28,6 +24,11 @@ class AdventsController < ApplicationController
 
   def show
     @advent = Advent.find(params[:id])
+    if @advent.date > @today
+      unless user_signed_in?
+        redirect_to root_path
+      end
+    end
   end
 
   def update
