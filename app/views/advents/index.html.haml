@@ -18,7 +18,7 @@
             -if @advents.find_by(date: 30).nil?
               -if user_signed_in?
                 %h1.text-center
-                  =icon 'times-circle-o'
+                  %i.fi-x
               -else
                 %h1.text-center
                   &nbsp;
@@ -32,7 +32,7 @@
               -if @advents.find_by(date: n).nil?
                 -if user_signed_in?
                   %h1.text-center
-                    =icon 'times-circle-o'
+                    %i.fi-x
                 -else
                   %h1.text-center
                     &nbsp;
@@ -40,10 +40,10 @@
                 -if user_signed_in?
                   %h1.text-center
                     =link_to advent_path(@advents.find_by(date: n)) do
-                      =icon 'lock'
+                      %i.fi-lock
                 -else
                   %h1.text-center
-                    =icon 'lock'
+                    %i.fi-lock
               -else
                 =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), '#', "data-reveal-id" => "modal#{n}"
         %tr
@@ -55,7 +55,7 @@
               -if @advents.find_by(date: n).nil?
                 -if user_signed_in?
                   %h1.text-center
-                    =icon 'times-circle-o'
+                    %i.fi-x
                 -else
                   %h1.text-center
                     &nbsp;
@@ -63,10 +63,10 @@
                 -if user_signed_in?
                   %h1.text-center
                     =link_to advent_path(@advents.find_by(date: n)) do
-                      =icon 'lock'
+                      %i.fi-lock
                 -else
                   %h1.text-center
-                    =icon 'lock'
+                    %i.fi-lock
               -else
                 =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), '#', "data-reveal-id" => "modal#{n}"
         %tr
@@ -78,7 +78,7 @@
               -if @advents.find_by(date: n).nil?
                 -if user_signed_in?
                   %h1.text-center
-                    =icon 'times-circle-o'
+                    %i.fi-x
                 -else
                   %h1.text-center
                     &nbsp;
@@ -86,10 +86,10 @@
                 -if user_signed_in?
                   %h1.text-center
                     =link_to advent_path(@advents.find_by(date: n)) do
-                      =icon 'lock'
+                      %i.fi-lock
                 -else
                   %h1.text-center
-                    =icon 'lock'
+                    %i.fi-lock
               -else
                 =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), '#', "data-reveal-id" => "modal#{n}"
         %tr
@@ -101,7 +101,7 @@
               -if @advents.find_by(date: n).nil?
                 -if user_signed_in?
                   %h1.text-center
-                    =icon 'times-circle-o'
+                    %i.fi-x
                 -else
                   %h1.text-center
                     &nbsp;
@@ -109,10 +109,10 @@
                 -if user_signed_in?
                   %h1.text-center
                     =link_to advent_path(@advents.find_by(date: n)) do
-                      =icon 'lock'
+                      %i.fi-lock
                 -else
                   %h1.text-center
-                    =icon 'lock'
+                    %i.fi-lock
               -else
                 =link_to image_tag(@advents.find_by(date: n).image.url, class: 'th'), '#', "data-reveal-id" => "modal#{n}"
 -@advents.each do |advent|
@@ -123,6 +123,6 @@
       =raw RedCloth.new(advent.description).to_html
     %h4.text-right
       =link_to advent_path(advent) do
-        =icon 'link'
+        %i.fi-link
         permalink
     %a.close-reveal-modal &#215;

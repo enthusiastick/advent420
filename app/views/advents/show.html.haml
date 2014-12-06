@@ -5,10 +5,10 @@
         %h1
           -if user_signed_in?
             =link_to '#', id: 'show-update' do
-              =icon 'pencil'
+              %i.fi-pencil
           -else
             =link_to advents_path do
-              =icon 'home'
+              %i.fi-home
       %li
         -if @advent.title.empty?
           %h1= @advent.date
